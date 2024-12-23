@@ -35,3 +35,4 @@ custom_formats:
       - 8baaf0b3142bf4d94c42a724f034e27a # Remux Tier 03
     assign_scores_to:
       - name: Remux-1080p - Anime
+      - name: HD Anime
