@@ -3,6 +3,12 @@ custom_formats:
       # Unified HDR
       - 505d871304820ba7106b693be6fe4a9e # HDR
 
+    assign_scores_to:
+      - name: WEB-2160p
+        score: -10000
+
+  - trash_ids:
+
       # Unwanted
       - 85c61753df5da1fb2aab6f2a47426b09 # BR-DISK
       - 9c11cd3f07101cdba90a2d81cf0e56b4 # LQ

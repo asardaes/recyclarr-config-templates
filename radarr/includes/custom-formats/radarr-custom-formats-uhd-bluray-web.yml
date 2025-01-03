@@ -3,6 +3,12 @@ custom_formats:
       # Unified HDR
       - 493b6d1dbec3c3364c59d7607f7e3405 # HDR
 
+    assign_scores_to:
+      - name: UHD Bluray + WEB
+        score: -10000
+
+  - trash_ids:
+
       # HQ Release Groups
       - 4d74ac4c4db0b64bff6ce0cffef99bf0 # UHD Bluray Tier 01
       - a58f517a70193f8e578056642178419d # UHD Bluray Tier 02
