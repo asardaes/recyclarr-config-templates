@@ -1,5 +1,5 @@
 quality_profiles:
-  - name: UHD Bluray + WEB (GER)
+  - name: HD Remux + WEB (GER)
     reset_unmatched_scores:
       enabled: true
     score_set: german
@@ -12,6 +12,6 @@ quality_profiles:
     qualities:
       - name: Merged QPs
         qualities:
-          - Bluray-2160p
-          - WEBDL-2160p
-          - WEBRip-2160p
+          - Bluray-1080p Remux
+          - WEBDL-1080p
+          - WEBRip-1080p
