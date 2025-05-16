@@ -13,12 +13,6 @@ custom_formats:
       - 17e889ce13117940092308f48b48b45b # HLG
       - 2a7e3be05d3861d6df7171ec74cad727 # PQ
 
-    assign_scores_to:
-      - name: WEB-2160p
-        score: -10000
-
-  - trash_ids:
-
       # Unwanted
       - 85c61753df5da1fb2aab6f2a47426b09 # BR-DISK
       - 9c11cd3f07101cdba90a2d81cf0e56b4 # LQ
