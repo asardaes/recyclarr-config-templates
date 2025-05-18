@@ -44,3 +44,4 @@ custom_formats:
       - d0c516558625b04b363fa6c5c2c7cfd4 # WEB Scene
     assign_scores_to:
       - name: WEB-2160p
+      - name: Almost-Any
