@@ -46,3 +46,4 @@ custom_formats:
     assign_scores_to:
       - name: Remux-1080p - Anime
       - name: HD Anime
+      - name: BR Anime
