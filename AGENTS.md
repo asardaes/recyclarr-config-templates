@@ -1,18 +1,16 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this
-repository.
+Guidance for AI agents working with this repository.
 
 ## Project Overview
 
-This repository contains configuration templates for
-[Recyclarr](https://github.com/recyclarr/recyclarr), a CLI tool that synchronizes TRaSH Guides
-recommendations to Radarr/Sonarr instances. Templates provide ready-to-use configurations that users
-can customize.
+Configuration templates for [Recyclarr](https://github.com/recyclarr/recyclarr), a CLI tool that
+synchronizes TRaSH Guides recommendations to Radarr/Sonarr instances. Templates provide ready-to-use
+configurations that users can customize.
 
 ## Commands
 
-Lint YAML files (requires Python 3 and yamllint installed):
+Lint YAML files (requires Python 3 and yamllint):
 
 ```bash
 yamllint .
@@ -24,7 +22,7 @@ On Windows, set `PYTHONUTF8=1` before running yamllint to handle unicode in Fren
 
 ### Template System
 
-The repository uses a two-tier template system:
+Two-tier template system:
 
 - `templates.json` - Maps template IDs to top-level template files (user-facing entry points)
 - `includes.json` - Maps include IDs to reusable component files
@@ -55,13 +53,13 @@ sonarr/
 
 Each top-level template has:
 
-- A header comment block with update date and documentation links
+- Header comment block with update date and documentation links
 - Instance definition section requiring `base_url` and `api_key`
 - Include references to components from `includes.json`
 - Optional custom format overrides with commented-out options
 
-Includes are partial YAML files that define specific configurations (quality profiles, custom
-formats, quality definitions).
+Includes are partial YAML files defining specific configurations (quality profiles, custom formats,
+quality definitions).
 
 ### Naming Conventions
 
@@ -86,20 +84,23 @@ this date to the current date in `YYYY-MM-DD` format.
 
 ## Conventional Commit Rules
 
-File path-based classification for commit messages:
+Commits with `feat:` or `fix:` prefixes trigger Discord notifications to users via `notify.yml`.
+Choose commit types carefully to avoid false notifications or missing legitimate ones.
 
-- `feat:` → New files in `radarr/templates/**`, `radarr/includes/**`, `sonarr/templates/**`,
+File path-based classification:
+
+- `feat:` - New files in `radarr/templates/**`, `radarr/includes/**`, `sonarr/templates/**`,
   `sonarr/includes/**`, or new entries in `templates.json`, `includes.json`
-- `fix:` → Modifications to existing files in the above template/include paths
-- `docs:` → `*.md`, `LICENSE`
-- `ci:` → `.github/workflows/**`
-- `chore:` → Everything else (default)
+- `fix:` - Modifications to existing files in the above template/include paths
+- `docs:` - `*.md`, `LICENSE`
+- `ci:` - `.github/workflows/**`
+- `chore:` - Everything else (default)
 
 **Scopes from paths:**
 
-- `radarr/**` → `(radarr)`
-- `sonarr/**` → `(sonarr)`
-- `templates.json`, `includes.json` → `(config)`
+- `radarr/**` - `(radarr)`
+- `sonarr/**` - `(sonarr)`
+- `templates.json`, `includes.json` - `(config)`
 
 **Breaking changes (!):**
 
