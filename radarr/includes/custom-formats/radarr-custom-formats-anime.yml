@@ -29,19 +29,17 @@ custom_formats:
       # Anime Streaming Services
       - 60f6d50cbd3cfc3e9a8c00e3a30c3114 # VRV
 
-      # Main Guide Remux Tier Scoring
-      - 3a3ff47579026e76d6504ebea39390de # Remux Tier 01
-      - 9f98181fe5a3fbeb0cc29340da2a468a # Remux Tier 02
-      - 8baaf0b3142bf4d94c42a724f034e27a # Remux Tier 03
     assign_scores_to:
       - name: Remux-1080p - Anime
       - name: HD Anime
 
   # Scores from asardaes
   - trash_ids:
+      # Main Guide Remux Tier Scoring
       - 3a3ff47579026e76d6504ebea39390de # Remux Tier 01
       - 9f98181fe5a3fbeb0cc29340da2a468a # Remux Tier 02
       - 8baaf0b3142bf4d94c42a724f034e27a # Remux Tier 03
     assign_scores_to:
+      - name: Remux-1080p - Anime
       - name: HD Anime
         score: -10000
