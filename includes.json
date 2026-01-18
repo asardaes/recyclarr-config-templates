@@ -1,6 +1,10 @@
 {
   "radarr": [
     {
+      "template": "radarr/includes/configs/radarr_main.yml",
+      "id": "radarr_main"
+    },
+    {
       "template": "radarr/includes/custom-formats/radarr-custom-formats-anime.yml",
       "id": "radarr-custom-formats-anime"
     },
