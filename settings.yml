@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/settings-schema.json
+
+# Edit this file to customize the behavior of Recyclarr beyond its defaults
+# For the settings file reference guide, visit the link to the wiki below:
+# https://recyclarr.dev/wiki/yaml/settings-reference/
+resource_providers:
+- name: asardaes
+  type: config-templates
+  clone_url: https://github.com/asardaes/recyclarr-config-templates.git
+  reference: custom
+  replace_default: true
+- name: my-sonarr-custom-formats
+  type: custom-formats
+  clone_url: https://github.com/asardaes/recyclarr-sonarr-custom-formats.git
+  reference: main
+  service: sonarr
+- name: my-radarr-custom-formats
+  type: custom-formats
+  clone_url: https://github.com/asardaes/recyclarr-sonarr-custom-formats.git
+  reference: main
+  service: radarr
