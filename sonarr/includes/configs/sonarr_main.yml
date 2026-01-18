@@ -1,0 +1,61 @@
+media_naming:
+  series: jellyfin-tvdb
+  season: default
+  episodes:
+    rename: true
+    standard: default
+    daily: default
+    anime: default
+
+custom_formats:
+  - trash_ids:
+      - non-hevc-10bit # assumes https://github.com/asardaes/recyclarr-sonarr-custom-formats
+    assign_scores_to:
+      - name: WEB-1080p
+      - name: WEB-2160p
+      - name: Almost-Any
+
+  - trash_ids:
+      - 47435ece6b99a0b477caf360e79ba0bb # x265 (HD)
+    assign_scores_to:
+      - name: WEB-1080p
+        score: 100
+      - name: Almost-Any
+        score: 100
+  - trash_ids:
+      - 9b64dff695c2115facf1b6ea59c9bd07 # x265 (no HDR/DV)
+    assign_scores_to:
+      - name: WEB-1080p
+      - name: Almost-Any
+
+  # HDR Formats
+  - trash_ids:
+      - 9b27ab6498ec0f31a3353992e19434ca # DV (w/o HDR fallback)
+    assign_scores_to:
+      - name: WEB-1080p
+      - name: WEB-2160p
+      - name: Almost-Any
+  - trash_ids:
+      - 7c3a61a9c6cb04f52f1544be6d44a026 # DV Boost
+    assign_scores_to:
+      - name: WEB-2160p
+        score: -500
+      - name: Almost-Any
+        score: -500
+
+  # Optional SDR
+  # Only ever use ONE of the following custom formats:
+  # SDR - block ALL SDR releases
+  # SDR (no WEBDL) - block UHD/4k Remux and Bluray encode SDR releases, but allow SDR WEB
+  - trash_ids:
+      - 2016d1676f5ee13a5b7257ff86ac9a93 # SDR
+      # - 83304f261cf516bb208c18c54c0adf97 # SDR (no WEBDL)
+    assign_scores_to:
+      - name: WEB-2160p
+
+  - trash_ids:
+      - 218e93e5702f44a68ad9e3c6ba87d2f0 # HD Streaming Boost
+      - 43b3cf48cb385cd3eac608ee6bca7f09 # UHD Streaming Boost
+    assign_scores_to:
+      - name: Almost-Any
+        score: 0

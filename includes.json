@@ -267,6 +267,10 @@
   ],
   "sonarr": [
     {
+      "template": "sonarr/includes/configs/sonarr_main.yml",
+      "id": "sonarr_main"
+    },
+    {
       "template": "sonarr/includes/custom-formats/sonarr-v4-custom-formats-anime.yml",
       "id": "sonarr-v4-custom-formats-anime"
     },
@@ -333,6 +337,10 @@
     {
       "template": "sonarr/includes/quality-definitions/sonarr-quality-definition-series.yml",
       "id": "sonarr-quality-definition-series"
+    },
+    {
+      "template": "sonarr/includes/quality-profiles/almost_any.yml",
+      "id": "quality_profile_almost_any"
     },
     {
       "template": "sonarr/includes/quality-profiles/sonarr-v4-quality-profile-anime.yml",
