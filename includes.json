@@ -5,6 +5,10 @@
       "id": "radarr_main"
     },
     {
+      "template": "radarr/includes/configs/radarr_anime.yml",
+      "id": "radarr_anime"
+    },
+    {
       "template": "radarr/includes/custom-formats/radarr-custom-formats-anime.yml",
       "id": "radarr-custom-formats-anime"
     },
