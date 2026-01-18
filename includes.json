@@ -271,6 +271,10 @@
       "id": "sonarr_main"
     },
     {
+      "template": "sonarr/includes/configs/sonarr_anime.yml",
+      "id": "sonarr_anime"
+    },
+    {
       "template": "sonarr/includes/custom-formats/sonarr-v4-custom-formats-anime.yml",
       "id": "sonarr-v4-custom-formats-anime"
     },

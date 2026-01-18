@@ -1,0 +1,81 @@
+media_naming:
+  series: jellyfin-tvdb
+  season: default
+  episodes:
+    rename: true
+    standard: default
+    daily: default
+    anime: default
+
+quality_definition:
+  type: anime
+  preferred_ratio: 0.99
+  qualities:
+    - name: Bluray-1080p
+      min: 5
+      max: 102.5
+      preferred: 51.5
+
+custom_formats:
+  - trash_ids:
+      - non-hevc-10bit # assumes https://github.com/asardaes/recyclarr-sonarr-custom-formats
+    assign_scores_to:
+      - name: Remux-1080p - Anime
+      - name: HD Anime
+      - name: BR Anime
+      - name: Staging Anime
+
+  - trash_ids:
+      - 026d5aadd1a6b4e550b134cb6c72b3ca # Uncensored
+    assign_scores_to:
+      - name: Remux-1080p - Anime
+        score: 100
+      - name: HD Anime
+        score: 100
+      - name: BR Anime
+        score: 100
+      - name: Staging Anime
+        score: 100
+
+  - trash_ids:
+      - b2550eb333d27b75833e25b8c2557b38 # 10bit
+    assign_scores_to:
+      - name: Remux-1080p - Anime
+        score: 50
+      - name: HD Anime
+        score: 50
+      - name: BR Anime
+        score: 50
+      - name: Staging Anime
+        score: 50
+
+  - trash_ids:
+      - 418f50b10f1907201b6cfdf881f467b7 # Anime Dual Audio
+    assign_scores_to:
+      - name: Remux-1080p - Anime
+        score: 50
+      - name: HD Anime
+        score: 50
+      - name: BR Anime
+        score: 50
+      - name: Staging Anime
+        score: 50
+
+  - trash_ids:
+      - 47435ece6b99a0b477caf360e79ba0bb # x265 (HD)
+    assign_scores_to:
+      - name: Remux-1080p - Anime
+        score: 10
+      - name: HD Anime
+        score: 10
+      - name: BR Anime
+        score: 10
+      - name: Staging Anime
+        score: 50
+
+  - trash_ids:
+      - 9965a052eb87b0d10313b1cea89eb451 # Remux Tier 01
+      - 8a1d0c3d7497e741736761a1da866a2e # Remux Tier 02
+    assign_scores_to:
+      - name: BR Anime
+        score: -10000
