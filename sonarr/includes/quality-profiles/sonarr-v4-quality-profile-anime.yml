@@ -73,7 +73,7 @@ quality_profiles:
       allowed: true
       until_quality: FHD
       until_score: 10000
-    min_format_score: 400
+    min_format_score: 100
     min_upgrade_format_score: 10
     score_set: anime-sonarr
     quality_sort: top
