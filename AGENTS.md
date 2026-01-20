@@ -2,35 +2,33 @@
 
 Guidance for AI agents working with this repository.
 
-## Project Overview
+## Overview
 
-Configuration templates for [Recyclarr](https://github.com/recyclarr/recyclarr), a CLI tool that
-synchronizes TRaSH Guides recommendations to Radarr/Sonarr instances. Templates provide ready-to-use
-configurations that users can customize.
+- Configuration templates for [Recyclarr](https://github.com/recyclarr/recyclarr), a CLI tool that
+  syncs TRaSH Guides recommendations to Radarr/Sonarr
+- Templates provide ready-to-use configurations users can customize
+- Issue tracking via Linear (internal only)
 
-## Commands
+## Branching
 
-Lint YAML files (requires Python 3 and yamllint):
+Version-aware branches track Recyclarr major versions. Recyclarr auto-selects: `v{major}` then
+`master` then `main`.
 
-```bash
-yamllint .
-```
+- **Before any work**: Verify checked-out branch matches intent
+- **New features/breaking changes**: Target `v{major}` branch (e.g., `v8` for Recyclarr 8.x)
+- **`master`**: Maintenance mode for older versions - critical fixes only
+- Breaking changes (ID removals, schema changes) are acceptable on version branches
 
-On Windows, set `PYTHONUTF8=1` before running yamllint to handle unicode in French templates.
+See `CONTRIBUTING.md` for full branching policy.
 
-## Repository Architecture
-
-### Template System
+## Structure
 
 Two-tier template system:
 
-- `templates.json` - Maps template IDs to top-level template files (user-facing entry points)
-- `includes.json` - Maps include IDs to reusable component files
+- `templates.json` - Maps template IDs to top-level files (user-facing entry points)
+- `includes.json` - Maps include IDs to reusable components
 
-Top-level templates (`radarr/templates/`, `sonarr/templates/`) reference includes via the `include:`
-directive using IDs from `includes.json`.
-
-### Directory Structure
+Top-level templates reference includes via `include:` directive using IDs from `includes.json`.
 
 ```txt
 radarr/
@@ -49,61 +47,48 @@ sonarr/
     quality-profiles/
 ```
 
-### Template Anatomy
-
-Each top-level template has:
-
-- Header comment block with update date and documentation links
-- Instance definition section requiring `base_url` and `api_key`
-- Include references to components from `includes.json`
-- Optional custom format overrides with commented-out options
-
-Includes are partial YAML files defining specific configurations (quality profiles, custom formats,
-quality definitions).
-
 ### Naming Conventions
 
-Templates follow pattern: `{resolution}-{source}-{language-variant}.yml`
+Templates: `{resolution}-{source}-{language-variant}.yml`
 
 - Resolution: `hd` (1080p), `uhd` (2160p)
 - Source: `bluray-web`, `remux-web`, `web`
 - Language variants: `french-vostfr`, `french-multi-vf`, `french-multi-vo`, `german`
 - SQP templates: `sqp-{1-5}` for size-quality balanced profiles
 
-## CI Workflows
+## Constraints
 
-- `yaml-lint.yml` - Validates YAML syntax on all pushes/PRs
-- `check-paths.yml` - Validates that paths in `templates.json` exist
-- `check-trash-ids.yml` - Validates trash IDs against TRaSH-Guides repository (PRs only)
-- `check-dates.yml` - Validates `Updated:` dates in template headers (PRs only)
+- Templates MUST include `Updated:` date in header comment
+- Modified templates MUST update date to current `YYYY-MM-DD`
+- Template headers MUST include documentation links
 
-## Template Header Requirements
+## Commits & PRs
 
-Templates must include an `Updated:` date in the header comment. When modifying a template, update
-this date to the current date in `YYYY-MM-DD` format.
+Commits with `feat:` or `fix:` trigger Discord notifications via `notify.yml`. Choose types
+carefully.
 
-## Conventional Commit Rules
+### Type Selection
 
-Commits with `feat:` or `fix:` prefixes trigger Discord notifications to users via `notify.yml`.
-Choose commit types carefully to avoid false notifications or missing legitimate ones.
-
-File path-based classification:
-
-- `feat:` - New files in `radarr/templates/**`, `radarr/includes/**`, `sonarr/templates/**`,
-  `sonarr/includes/**`, or new entries in `templates.json`, `includes.json`
-- `fix:` - Modifications to existing files in the above template/include paths
+- `feat:` - New files in `*/templates/**`, `*/includes/**`, or new entries in `*.json`
+- `fix:` - Modifications to existing template/include files
 - `docs:` - `*.md`, `LICENSE`
 - `ci:` - `.github/workflows/**`
 - `chore:` - Everything else (default)
 
-**Scopes from paths:**
+### Scopes
 
 - `radarr/**` - `(radarr)`
 - `sonarr/**` - `(sonarr)`
 - `templates.json`, `includes.json` - `(config)`
 
-**Breaking changes (!):**
+### Breaking Changes (!)
 
-- Template ID renames or removals
-- Include ID renames or removals
+- Template or include ID renames/removals
 - Schema changes requiring user config updates
+
+### CI Checks
+
+- `yaml-lint.yml` - YAML syntax (all pushes/PRs)
+- `check-paths.yml` - Paths in `templates.json` exist
+- `check-trash-ids.yml` - Trash IDs valid against TRaSH-Guides (PRs only)
+- `check-dates.yml` - `Updated:` dates in headers (PRs only)
