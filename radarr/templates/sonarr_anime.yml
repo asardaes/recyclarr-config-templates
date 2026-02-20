@@ -1,0 +1,64 @@
+sonarr:
+  anime:
+    delete_old_custom_formats: true
+
+    media_naming:
+      series: jellyfin-tvdb
+      season: default
+      episodes:
+        rename: true
+        standard: default
+        daily: default
+        anime: default
+
+    quality_definition:
+      type: anime
+      preferred_ratio: 0.99
+      qualities:
+        - name: Bluray-1080p
+          min: 5
+          max: 102.5
+          preferred: 51.5
+
+    quality_profiles:
+    - trash_id: asardaes-anime-staging
+    - trash_id: asardaes-anime-br
+      min_format_score: 300
+
+    custom_formats:
+      - trash_ids:
+          - non-hevc-10bit # assumes https://github.com/asardaes/recyclarr-sonarr-custom-formats
+        assign_scores_to:
+          - name: BR Anime
+          - name: Staging Anime
+
+      - trash_ids:
+          - b2550eb333d27b75833e25b8c2557b38 # 10bit
+        assign_scores_to:
+          - name: BR Anime
+            score: 50
+          - name: Staging Anime
+            score: 50
+
+      - trash_ids:
+          - 47435ece6b99a0b477caf360e79ba0bb # x265 (HD)
+        assign_scores_to:
+          - name: BR Anime
+            score: 10
+          - name: Staging Anime
+            score: 50
+
+      - trash_ids:
+          - 9965a052eb87b0d10313b1cea89eb451 # Remux Tier 01
+          - 8a1d0c3d7497e741736761a1da866a2e # Remux Tier 02
+        assign_scores_to:
+          - name: BR Anime
+            score: -10000
+          - name: Staging Anime                                                                 
+            score: -10000
+
+      - trash_ids:
+          - 15a05bc7c1a36e2b57fd628f8977e2fc # AV1
+        assign_scores_to:
+          - name: Staging Anime
+            score: 500

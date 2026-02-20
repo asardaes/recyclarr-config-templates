@@ -1,0 +1,25 @@
+sonarr:
+  series:
+    delete_old_custom_formats: true
+
+    media_naming:
+      series: jellyfin-tvdb
+      season: default
+      episodes:
+        rename: true
+        standard: default
+        daily: default
+        anime: default
+
+    quality_profiles:
+    - trash_id: 72dae194fc92bf828f32cde7744e51a1 # web-1080p
+    - trash_id: d1498e7d189fbe6c7110ceaabb7473e6 # web-2160p
+    - trash_id: asardaes-almost-any
+
+    custom_formats:
+      - trash_ids:
+          - non-hevc-10bit # assumes https://github.com/asardaes/recyclarr-sonarr-custom-formats
+        assign_scores_to:
+          - name: WEB-1080p
+          - name: WEB-2160p
+          - name: Almost-Any
