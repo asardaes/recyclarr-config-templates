@@ -33,14 +33,6 @@ sonarr:
           - name: Staging Anime
 
       - trash_ids:
-          - b2550eb333d27b75833e25b8c2557b38 # 10bit
-        assign_scores_to:
-          - name: BR Anime
-            score: 50
-          - name: Staging Anime
-            score: 50
-
-      - trash_ids:
           - 47435ece6b99a0b477caf360e79ba0bb # x265 (HD)
         assign_scores_to:
           - name: BR Anime
