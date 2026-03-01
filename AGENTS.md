@@ -21,6 +21,35 @@ Version-aware branches track Recyclarr major versions. Recyclarr auto-selects: `
 
 See `CONTRIBUTING.md` for full branching policy.
 
+## TRaSH Guides Integration
+
+TRaSH Guides is the authoritative source. When discrepancies exist between templates and guides,
+defer to guides.
+
+### Guide Resources
+
+Located in TRaSH-Guides repo under `docs/json/{radarr,sonarr}/`:
+
+- `quality-profiles/*.json` - Quality profile definitions with `formatItems`
+- `cf-groups/*.json` - CF group definitions with profile targeting
+- `cf/*.json` - Individual custom format definitions
+
+### Guide-Backed Resources
+
+Templates can reference guide resources by `trash_id`:
+
+- `quality_profiles.trash_id` - Syncs profile definition AND `formatItems` (CFs with scores)
+- `custom_format_groups.trash_id` - Syncs CF groups; users customize via `exclude` node
+
+### CF Group Structure
+
+CF groups define:
+
+- `custom_formats[]` - CFs in the group with `required`/`default` flags
+- `quality_profiles.include` - Map of profile names to trash_ids this group applies to
+
+To find groups for a profile: search `cf-groups/` for the profile's trash_id.
+
 ## Structure
 
 Two-tier template system:
@@ -92,3 +121,9 @@ carefully.
 - `check-paths.yml` - Paths in `templates.json` exist
 - `check-trash-ids.yml` - Trash IDs valid against TRaSH-Guides (PRs only)
 - `check-dates.yml` - `Updated:` dates in headers (PRs only)
+
+## Skills
+
+Load skills before specialized tasks:
+
+- `template-conversion` - Converting templates to use guide-backed profiles and CF groups
